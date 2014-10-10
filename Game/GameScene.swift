@@ -10,12 +10,12 @@ import SpriteKit
 
 class GameScene: SKScene {
 
-	var spriteArray:[SKSpriteNode] = []
+    var spriteArray:[SKSpriteNode] = []
 
-	override func didMoveToView(view: SKView) {
+    override func didMoveToView(view: SKView) {
         /* Setup your scene here */
     }
-	
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
@@ -31,15 +31,15 @@ class GameScene: SKScene {
             let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
             
             sprite.runAction(SKAction.repeatActionForever(action))
-			spriteArray.append(sprite);
+            spriteArray.append(sprite);
             
             self.addChild(sprite)
-			
-			println("sprite" + spriteArray.count.description)
-			if spriteArray.count > 5 {
-				spriteArray[0].removeFromParent()
-				spriteArray.removeAtIndex(0)
-			}
+            
+            println("sprite" + spriteArray.count.description)
+            if spriteArray.count > 5 {
+                spriteArray[0].removeFromParent()
+                spriteArray.removeAtIndex(0)
+            }
         }
     }
    
