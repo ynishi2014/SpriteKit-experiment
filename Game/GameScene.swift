@@ -27,7 +27,7 @@ class GameScene: SKScene {
             sprite.xScale = 0.1
             sprite.yScale = 0.1
             sprite.position = location
-            
+            sprite.speed = 10
             spriteArray.append(sprite);
             
             self.addChild(sprite)
