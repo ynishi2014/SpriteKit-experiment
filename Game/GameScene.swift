@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
 
-    var spriteArray:[SKSpriteNode] = []
+    var spriteArray:[GameObject] = []
 
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -22,7 +22,7 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            let sprite = GameObject(imageNamed:"Spaceship")
             
             sprite.xScale = 0.1
             sprite.yScale = 0.1
@@ -40,11 +40,9 @@ class GameScene: SKScene {
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
-    	for sprite: SKSpriteNode in spriteArray {
-	        let v:CGFloat = 10
-        	sprite.position = CGPointMake(sprite.position.x + cos(sprite.zRotation + 3.1 / 2) * v, sprite.position.y + sin(sprite.zRotation + 3.1 / 2) * v)
-            sprite.zRotation += 0.1
+    override func update(dt: CFTimeInterval) {
+    	for sprite: GameObject in spriteArray {
+    		sprite.nextFrame(dt)
         }
     }
 }
