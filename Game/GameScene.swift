@@ -24,13 +24,10 @@ class GameScene: SKScene {
             
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
             
-            sprite.xScale = 0.2
-            sprite.yScale = 0.2
+            sprite.xScale = 0.1
+            sprite.yScale = 0.1
             sprite.position = location
             
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
             spriteArray.append(sprite);
             
             self.addChild(sprite)
@@ -44,6 +41,10 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    	for sprite: SKSpriteNode in spriteArray {
+	        let v:CGFloat = 10
+        	sprite.position = CGPointMake(sprite.position.x + cos(sprite.zRotation + 3.1 / 2) * v, sprite.position.y + sin(sprite.zRotation + 3.1 / 2) * v)
+            sprite.zRotation += 0.1
+        }
     }
 }
