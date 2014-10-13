@@ -28,6 +28,7 @@ class GameScene: SKScene {
             sprite.yScale = 0.1
             sprite.position = location
             sprite.speed = 10
+            sprite.vRotation = (CGFloat(rand() % 2) - 0.5) * 0.2
             spriteArray.append(sprite);
             
             self.addChild(sprite)

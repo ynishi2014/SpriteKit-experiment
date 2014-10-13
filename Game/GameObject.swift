@@ -9,8 +9,11 @@
 import SpriteKit
 
 class GameObject : SKSpriteNode{
+
+	var vRotation:CGFloat = 0
+
 	func nextFrame(dt: CFTimeInterval){
         position = CGPointMake(position.x + cos(zRotation + 3.1 / 2) * speed, position.y + sin(zRotation + 3.1 / 2) * speed)
-        zRotation += 0.1
+        zRotation += vRotation
     }
 }
